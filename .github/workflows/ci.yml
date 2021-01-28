@@ -1,4 +1,7 @@
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -8,6 +11,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Lint shell script
         uses: azohra/shell-linter@v0.4.0
         with:
@@ -16,13 +20,15 @@ jobs:
   test-on-linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: bradyjoslin/setup-wrangler@main
+    - uses: actions/checkout@v2
+    - uses: ./
     - run: wrangler --help
 
   test-on-linux-input-version:
     runs-on: ubuntu-latest
     steps:
-    - uses: bradyjoslin/setup-wrangler@main
+    - uses: actions/checkout@v2    
+    - uses: ./
       with:
         wrangler_version: '1.6.0'
     - run: wrangler --help
@@ -30,7 +36,8 @@ jobs:
   test-on-mac:
     runs-on: macos-latest
     steps:
-    - uses: bradyjoslin/setup-wrangler@main
+    - uses: actions/checkout@v2
+    - uses: ./
     - run: wrangler --help
 
   compare-with-wrangler-action:

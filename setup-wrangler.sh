@@ -17,5 +17,5 @@ if [ "$RUNNER_OS" == "Windows" ]; then
     install_wrangler
 else
     install_wrangler
-    echo "~/.npm-global/bin" >> $GITHUB_PATH
+    echo "$HOME/.npm-global/bin" >> "$GITHUB_PATH"
 fi
