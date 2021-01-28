@@ -1,0 +1,11 @@
+name: 'Setup Wrangler'
+description: 'Sets up Cloudflare Wrangler'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+    - name: Install Wrangler
+      env:
+        NPM_CONFIG_PREFIX: "~/.npm-global"
+      run: ${{ github.action_path }}/setup-wrangler.sh
+      shell: bash
