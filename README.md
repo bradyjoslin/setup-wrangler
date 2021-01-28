@@ -10,7 +10,7 @@ Basic use installs latest version of wrangler:
 
 ```sh
 steps:
-- uses: bradyjoslin/setup-wrangler@v1.0.0
+- uses: bradyjoslin/setup-wrangler@v1
 - run: wrangler --help
 ```
 
@@ -18,7 +18,7 @@ Optionally, specify the wrangler version:
 
 ```sh
 steps:
-- uses: bradyjoslin/setup-wrangler@v1.0.0
+- uses: bradyjoslin/setup-wrangler@v1
   with:
     wrangler_version: '1.6.0'
 - run: wrangler --help
