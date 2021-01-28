@@ -32,13 +32,6 @@ jobs:
     steps:
     - uses: bradyjoslin/setup-wrangler@main
     - run: wrangler --help
-        
-  test-on-windows:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: bradyjoslin/setup-wrangler@main
-    - run: wrangler --help
 
   compare-with-wrangler-action:
     runs-on: ubuntu-latest
