@@ -1,10 +1,15 @@
-name: 'Setup Wrangler'
+name: "Setup Wrangler"
 description: 'Sets up Cloudflare Wrangler'
+inputs:
+  wrangler_version:
+    description: "The version of Wrangler you'd like to setup"
+    required: false
 runs:
   using: "composite"
   steps:
     - name: Install Wrangler
       env:
         NPM_CONFIG_PREFIX: "~/.npm-global"
+        WRANGLER_VERSION: ${{ inputs.wrangler_version }}
       run: ${{ github.action_path }}/setup-wrangler.sh
       shell: bash
